@@ -686,8 +686,12 @@
         messageDiv.appendChild(avatarImg);
         messageDiv.appendChild(contentDiv);
 
-        const typingContainer = elements.typingIndicator.parentElement.parentElement;
-        elements.messagesContainer.insertBefore(messageDiv, typingContainer);
+        const lastChild = elements.messagesContainer.lastElementChild;
+if (lastChild && lastChild.querySelector('#nadina-typing-indicator')) {
+  elements.messagesContainer.insertBefore(messageDiv, lastChild);
+} else {
+  elements.messagesContainer.appendChild(messageDiv);
+}
 
         scrollToBottom();
 
@@ -707,8 +711,12 @@
           </div>
         `;
         
-        const typingContainer = elements.typingIndicator.parentElement.parentElement;
-        elements.messagesContainer.insertBefore(buttonDiv, typingContainer);
+        const lastChild = elements.messagesContainer.lastElementChild;
+if (lastChild && lastChild.querySelector('#nadina-typing-indicator')) {
+  elements.messagesContainer.insertBefore(buttonDiv, lastChild);
+} else {
+  elements.messagesContainer.appendChild(buttonDiv);
+}
         scrollToBottom();
       }
 
@@ -762,4 +770,5 @@
     })();
   </script>
 </body>
+
 </html>
