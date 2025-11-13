@@ -68,44 +68,47 @@
       object-position: center;
     }
 
-    /* Burbuja "¡Hola!" con CSS */
+    /* Burbuja "¡Hola!" - BIEN VISIBLE ARRIBA */
     #nadina-chat-button::before {
       content: '¡Hola!';
       position: absolute;
-      top: -10px;
-      left: -20px;
+      top: -45px;
+      left: 50%;
+      transform: translateX(-50%);
       background: white;
       color: var(--nadina-gray-900);
-      padding: 6px 12px;
-      border-radius: 15px;
-      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       animation: bubbleBounce 2s ease-in-out infinite;
       pointer-events: none;
-      z-index: 1;
+      z-index: 10;
+      white-space: nowrap;
     }
 
-    /* Pequeño triángulo de la burbuja */
+    /* Pequeño triángulo de la burbuja - apuntando al botón */
     #nadina-chat-button::after {
       content: '';
       position: absolute;
-      top: 8px;
-      left: 22px;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 0;
       height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 8px solid white;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 10px solid white;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
       animation: bubbleBounce 2s ease-in-out infinite;
       pointer-events: none;
-      z-index: 1;
+      z-index: 9;
     }
 
     @keyframes bubbleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      0%, 100% { transform: translateY(0) translateX(-50%); }
+      50% { transform: translateY(-5px) translateX(-50%); }
     }
 
     /* Cuando el chat está abierto, ocultar la burbuja */
